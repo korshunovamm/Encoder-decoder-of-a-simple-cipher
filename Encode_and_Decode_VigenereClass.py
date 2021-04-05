@@ -3,10 +3,21 @@ import itertools
 
 
 class EncodeVigenereClass(AbsCodeClass):
+    """Super().__init__() инициализирует переменную typecode, которая является ключом к шифру Цезаря,
+    поданного на вход через консоль. Typecode принимает значение '+1' в случае кодирования,
+    '-1' в случае декодирования. Далее используется функция кодирования текста."""
+
     def __init__(self, text):
         super().__init__(text, 1)
 
     def code(self):
+        # self.typecode: =1 при кодировании, =-1 при декодировании
+        # KEY - ключ для шифрования Виженером - слово
+        # cipher - конечный результат гифрования - зашифрованный/расшифрованный текст
+        # char - один символ текста
+        # self.letters - количество букв в алфавите
+        # self.bigstartletter/self.smallstartletter - номер первой заглавной/маленькой буквы в алфавите
+        # i пробегает значения от 0 до длины слова KEY
         KEY = input("Введите ключ(слово): ")
         len_key = len(KEY)
         cipher = ""
@@ -30,6 +41,11 @@ class EncodeVigenereClass(AbsCodeClass):
 
 
 class DecodeVigenereClass(EncodeVigenereClass):
+    """Super().__init__() инициализирует переменную typecode, которая является ключом к шифру Цезаря,
+    поданного на вход через консоль. Typecode принимает значение '+1' в случае кодирования,
+    '-1' в случае декодирования. Далее используется функция кодирования текста, которая
+    наследуется, как материнская."""
+
     def __init__(self, text):
         super().__init__(text)
         self.typecode = -1
