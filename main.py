@@ -24,7 +24,7 @@ def choices(text):
 
 
 # читаю текст файла
-path = input("Введите путь к файлу: ")
+path = input("Введите абсолютный путь к файлу: ")
 with open(path, encoding='utf-8', mode='r') as f:
     TEXT = f.read()
 f.close()
