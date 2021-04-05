@@ -7,7 +7,15 @@ class EncodeCesarClass(AbsCodeClass):
     со знаком '-' в случае декодирования. Далее используется функция кодирования текста."""
 
     def __init__(self, text):
-        super().__init__(text, int(input("Введите ключ(число): ")))
+        def except_value_error():
+            try:
+                key_cesar = int(input("Введите ключ(число): "))
+                return key_cesar
+            except ValueError:
+                print("Это не число(((")
+                except_value_error()
+        super().__init__(text, except_value_error())
+
 
     def code(self):
         cipher = ''

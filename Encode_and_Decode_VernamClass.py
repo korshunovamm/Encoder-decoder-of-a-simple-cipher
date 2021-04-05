@@ -14,11 +14,20 @@ class CodeVernamClass:
         # i пробегает значения от 0 до длины слова KEY
         # encrypted - значение операции XOR для символа текста и соответствующкй буквы ключа
         # cipher - конечный результат гифрования - зашифрованный/расшифрованный текст
+        def except_value_error():
+            while True:
+                key_vernam = input("Введите ключ(слово): ")
+                if not key_vernam.isalpha():
+                    print("Это не слово(((")
+                else:
+                    break
+            return key_vernam
+
         cipher = []
-        KEY = input("Введите ключ(слово): ")
-        len_key = len(KEY)
+        key_ver = except_value_error()
+        len_key = len(key_ver)
         for char, i in zip(self.text, itertools.cycle(range(len_key))):
-            encrypted = ord(char) ^ ord(KEY[i % len_key])
+            encrypted = ord(char) ^ ord(key_ver[i % len_key])
             cipher.append(chr(encrypted))
         print(''.join(cipher))
         return ''.join(cipher)

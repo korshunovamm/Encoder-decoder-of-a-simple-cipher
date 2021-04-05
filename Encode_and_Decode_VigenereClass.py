@@ -12,24 +12,33 @@ class EncodeVigenereClass(AbsCodeClass):
 
     def code(self):
         # self.typecode: =1 при кодировании, =-1 при декодировании
-        # KEY - ключ для шифрования Виженером - слово
+        # key_vig - ключ для шифрования Виженером - слово
         # cipher - конечный результат гифрования - зашифрованный/расшифрованный текст
         # char - один символ текста
         # self.letters - количество букв в алфавите
         # self.bigstartletter/self.smallstartletter - номер первой заглавной/маленькой буквы в алфавите
-        # i пробегает значения от 0 до длины слова KEY
-        KEY = input("Введите ключ(слово): ")
-        len_key = len(KEY)
+        # i пробегает значения от 0 до длины слова key_vig
+        def except_value_error():
+            while True:
+                key_vigener = input("Введите ключ(слово): ")
+                if not key_vigener.isalpha():
+                    print("Это не слово(((")
+                else:
+                    break
+            return key_vigener
+
+        key_vig = except_value_error()
+        len_key = len(key_vig)
         cipher = ""
         for char, i in zip(self.text, itertools.cycle(range(len_key))):
             if char.isupper():
                 # вычисляю численное значение для заглавной буквы
-                value = (ord(char) + self.typecode*(ord(KEY[i].upper()) - self.bigstartletter)
+                value = (ord(char) + self.typecode*(ord(key_vig[i].upper()) - self.bigstartletter)
                          - self.bigstartletter) % self.letters
                 cipher += chr(value + self.bigstartletter)
             elif char.islower():
                 # вычисляю численное значение для маленькой буквы
-                value = (ord(char) + self.typecode*(ord(KEY[i].lower()) - self.smallstartletter)
+                value = (ord(char) + self.typecode*(ord(key_vig[i].lower()) - self.smallstartletter)
                          - self.smallstartletter) % self.letters
                 cipher += chr(value + self.smallstartletter)
             else:
