@@ -13,7 +13,7 @@ class AbsCodeClass(ABC):
         for i in range(len(self.text)):
             # проверка на русский алфавит
             if ord(self.text[i].upper()) > ord("А") and ord(self.text[i].upper()) < ord("Я"):
-                self.letters = 33
+                self.letters = 32
                 self.smallstartletter = ord("а")
                 self.bigstartletter = ord("А")
                 # самая часто втречаюшаяся буква в тексте
@@ -22,7 +22,7 @@ class AbsCodeClass(ABC):
                 break
             # проверка на нглийский алфавит
             if ord(self.text[i].upper()) > ord("A") and ord(self.text[i].upper()) < ord("Z"):
-                self.letters = 26
+                self.letters = 25
                 self.smallstartletter = ord("a")
                 self.bigstartletter = ord("A")
                 # самая часто втречаюшаяся буква в тексте

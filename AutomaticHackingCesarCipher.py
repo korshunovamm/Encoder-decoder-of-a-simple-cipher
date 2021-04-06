@@ -1,4 +1,3 @@
-import heapq
 from AbstractClassEncryptor import AbsCodeClass
 
 
@@ -28,11 +27,14 @@ class AutomaticCesarClass(AbsCodeClass):
 
     def code(self):
         """Выводит ключ кода Цезаря по часто встречающейся букве"""
-        count = {chr(x): 0 for x in range(self.smallstartletter, self.smallstartletter + self.letters - 1)}
-        heap = []
+        count = {chr(x): 0 for x in range(self.smallstartletter, self.smallstartletter + self.letters)}
+        max_count = 0
+        max_char = None
         for char in self.text:
             if char.isalpha():
                 count[char.lower()] += 1
-                heapq.heappush(heap, (count[char.lower()], char.lower()))
-        key_cesar_encrypt = -abs(ord(heapq.heappop(heap)[1]) - self.smallstartletter)
+                max_count = count[char.lower()] if count[char.lower()] >= max_count else max_count
+                max_char = char.lower() if count[char.lower()] >= max_count else max_char
+        key_cesar_encrypt = -abs(ord(max_char) - self.frequency_char)
+        print(key_cesar_encrypt)
         self.code_cesar(key_cesar_encrypt)
