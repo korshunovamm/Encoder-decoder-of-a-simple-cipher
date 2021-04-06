@@ -19,5 +19,5 @@ def except_path_file_errors():
 
 # вывод шифрования в консоль
 text = except_path_file_errors()
-choices(text).code()
+a = choices(text).code()
 # choices(a).code()
