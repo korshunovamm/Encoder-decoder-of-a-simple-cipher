@@ -16,7 +16,6 @@ class EncodeCesarClass(AbsCodeClass):
                 except_value_error()
         super().__init__(text, except_value_error())
 
-
     def code(self):
         cipher = ''
         # self.typecode - ключ для шифрования(принимается с консоли) - число
