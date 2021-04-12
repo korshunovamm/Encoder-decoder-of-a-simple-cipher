@@ -12,6 +12,9 @@ class AbsCodeClass(ABC):
         self.text = file_text
         for i in range(len(self.text)):
             # проверка на русский алфавит
+            # "А" - первая заглавная буква в русском алфавите
+            # "а" - ервая маленькая буква в русском алфавите
+            # "Я" - последняя заглавная буква в русском алфавите
             if ord(self.text[i].upper()) > ord("А") and ord(self.text[i].upper()) < ord("Я"):
                 self.letters = 32
                 self.smallstartletter = ord("а")
@@ -21,6 +24,9 @@ class AbsCodeClass(ABC):
                 self.typecode = typecode
                 break
             # проверка на нглийский алфавит
+            # "А" - первая заглавная буква в английском алфавите
+            # "а" - ервая маленькая буква в английском алфавите
+            # "Z" - последняя заглавная буква в английском алфавите
             if ord(self.text[i].upper()) > ord("A") and ord(self.text[i].upper()) < ord("Z"):
                 self.letters = 25
                 self.smallstartletter = ord("a")
