@@ -30,6 +30,6 @@ class AbsCodeClass(ABC):
                 self.typecode = typecode
                 break
 
-    @ abstractmethod
+    @abstractmethod
     def code(self):
         pass
