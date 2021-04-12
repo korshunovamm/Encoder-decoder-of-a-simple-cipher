@@ -33,13 +33,13 @@ class EncodeVigenereClass(AbsCodeClass):
         for char, i in zip(self.text, itertools.cycle(range(len_key))):
             if char.isupper():
                 # вычисляю численное значение для заглавной буквы
-                value = (ord(char) + self.typecode*(ord(key_vig[i].upper()) - self.bigstartletter)
-                         - self.bigstartletter) % self.letters
+                value = (ord(char) + self.typecode*(ord(key_vig[i].upper()) - self.bigstartletter) -
+                         self.bigstartletter) % self.letters
                 cipher += chr(value + self.bigstartletter)
             elif char.islower():
                 # вычисляю численное значение для маленькой буквы
-                value = (ord(char) + self.typecode*(ord(key_vig[i].lower()) - self.smallstartletter)
-                         - self.smallstartletter) % self.letters
+                value = (ord(char) + self.typecode*(ord(key_vig[i].lower()) - self.smallstartletter) -
+                         self.smallstartletter) % self.letters
                 cipher += chr(value + self.smallstartletter)
             else:
                 # если пробел, не учитываю
