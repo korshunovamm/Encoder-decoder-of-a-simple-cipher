@@ -8,7 +8,7 @@ class AbsCodeClass(ABC):
     *args может быть подан typecod, который взависимости от кодирования или декодирования принимает
     противоположные по знаку значения (сделано это для того, чтобы избежать копирования кода)"""
 
-    def __init__(self, file_text, typecode=None):
+    def __init__(self, file_text, window=None, typecode=None):
         self.text = file_text
         for i in range(len(self.text)):
             # проверка на русский алфавит
@@ -22,6 +22,7 @@ class AbsCodeClass(ABC):
                 # самая часто втречаюшаяся буква в тексте
                 self.frequency_char = ord("о")
                 self.typecode = typecode
+                self.window = window
                 break
             # проверка на нглийский алфавит
             # "А" - первая заглавная буква в английском алфавите
@@ -34,6 +35,7 @@ class AbsCodeClass(ABC):
                 # самая часто втречаюшаяся буква в тексте
                 self.frequency_char = ord("e")
                 self.typecode = typecode
+                self.window = window
                 break
 
     @abstractmethod
