@@ -23,21 +23,29 @@ def radiobutton_encode_and_decode_class(text_file, window, bg_color):
     rad6 = Radiobutton(window, text='автоматический взлом шифра Цезаря частотным анализом', value=6,
                        variable=r_var, justify=CENTER, bg=bg_color)
 
-    rad0.grid(column=0, row=3)
-    rad1.grid(column=0, row=4)
-    rad2.grid(column=0, row=5)
-    rad3.grid(column=2, row=3)
-    rad4.grid(column=2, row=4)
-    rad5.grid(column=2, row=5)
-    rad6.grid(column=1, row=6)
+    rad0.pack()
+    rad1.pack()
+    rad2.pack()
+    rad3.pack()
+    rad4.pack()
+    rad5.pack()
+    rad6.pack()
 
     def choice():
         code_class = [EncodeCesarClass, EncodeVigenereClass, CodeVernamClass,
                       DecodeCesarClass, DecodeVigenereClass, CodeVernamClass, AutomaticCesarClass]
-        a = code_class[r_var.get()](text_file, window=window)
-        code_text = a.code()
-        lbl_code_text = Label(text=code_text)
-        lbl_code_text.grid(column=0, row=20)
+        Client_choice_of_encryptor = code_class[r_var.get()](text_file, window=window, bg_color=bg_color)
+        code_text = Client_choice_of_encryptor.code()
+
+        lbl_space = Label(text='', bg=bg_color)
+        lbl_space.pack()
+
+        # вывожу зашифрованный обработанный программой текст
+        lbl_code_text = Label(text=code_text, bg=bg_color)
+        lbl_code_text.pack()
 
     click = Button(window, text="Кодировать!!!", command=choice, justify=CENTER, bg=bg_color)
-    click.grid(column=1, row=7)
+    click.pack()
+
+    lbl_space = Label(text='', bg=bg_color)
+    lbl_space.pack()

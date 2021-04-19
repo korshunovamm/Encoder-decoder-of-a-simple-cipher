@@ -10,32 +10,35 @@ class AbsCodeClass(ABC):
 
     def __init__(self, file_text, window=None, typecode=None):
         self.text = file_text
+        # ключ для шифрования
+        self.typecode = typecode
+        # дополнительные данные для графического интерфейса
+        self.window = window
         for i in range(len(self.text)):
-            # проверка на русский алфавит
-            # "А" - первая заглавная буква в русском алфавите
-            # "а" - первая маленькая буква в русском алфавите
-            # "Я" - последняя заглавная буква в русском алфавите
-            if ord(self.text[i].upper()) > ord("А") and ord(self.text[i].upper()) < ord("Я"):
+            """
+            проверка на русский алфавит
+            "А" - первая заглавная буква в русском алфавите
+            "а" - первая маленькая буква в русском алфавите
+            "Я" - последняя заглавная буква в русском алфавите
+            self.frequency_char -самая часто втречаюшаяся буква в тексте
+            """
+            if ord("А") < ord(self.text[i].upper()) < ord("Я"):
                 self.letters = 32
                 self.smallstartletter = ord("а")
                 self.bigstartletter = ord("А")
-                # самая часто втречаюшаяся буква в тексте
                 self.frequency_char = ord("о")
-                self.typecode = typecode
-                self.window = window
                 break
-            # проверка на нглийский алфавит
-            # "А" - первая заглавная буква в английском алфавите
-            # "а" - первая маленькая буква в английском алфавите
-            # "Z" - последняя заглавная буква в английском алфавите
-            if ord(self.text[i].upper()) > ord("A") and ord(self.text[i].upper()) < ord("Z"):
+            """
+            проверка на нглийский алфавит
+            "А" - первая заглавная буква в английском алфавите
+            "а" - первая маленькая буква в английском алфавите
+            "Z" - последняя заглавная буква в английском алфавите
+            """
+            if ord("A") < ord(self.text[i].upper()) < ord("Z"):
                 self.letters = 25
                 self.smallstartletter = ord("a")
                 self.bigstartletter = ord("A")
-                # самая часто втречаюшаяся буква в тексте
                 self.frequency_char = ord("e")
-                self.typecode = typecode
-                self.window = window
                 break
 
     @abstractmethod

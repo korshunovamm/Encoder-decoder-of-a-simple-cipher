@@ -2,14 +2,19 @@ from AbstractClassEncryptor import AbsCodeClass
 
 
 class AutomaticCesarClass(AbsCodeClass):
+    def __init__(self, text, window, bg_color):
+        super().__init__(text, window)
+
     def code_cesar(self, key):
+        """
+        self.typecode - ключ для шифрования(принимается с консоли) - число
+        cipher - конечный результат шифрования - зашифрованный/расшифрованный текст
+        char - один символ текста
+        self.letters - количество букв в алфавите
+        self.bigstartletter/self.smallstartletter - номер первой заглавной/маленькой буквы в алфавите
+        """
         self.typecode = key
         cipher = ''
-        # self.typecode - ключ для шифрования(принимается с консоли) - число
-        # cipher - конечный результат гифрования - зашифрованный/расшифрованный текст
-        # char - один символ текста
-        # self.letters - количество букв в алфавите
-        # self.bigstartletter/self.smallstartletter - номер первой заглавной/маленькой буквы в алфавите
         for char in self.text:
             # если буква заглавная, то и после кодирования она останется заглавной
             if char.isupper():
@@ -22,7 +27,6 @@ class AutomaticCesarClass(AbsCodeClass):
             # если символ то он сохраняется, не внося никакой вклад в шифрование
             else:
                 cipher += char
-        print(cipher)
         return cipher
 
     def code(self):
@@ -36,5 +40,4 @@ class AutomaticCesarClass(AbsCodeClass):
                 max_count = count[char.lower()] if count[char.lower()] >= max_count else max_count
                 max_char = char.lower() if count[char.lower()] >= max_count else max_char
         key_cesar_encrypt = -abs(ord(max_char) - self.frequency_char)
-        print(key_cesar_encrypt)
-        self.code_cesar(key_cesar_encrypt)
+        return self.code_cesar(key_cesar_encrypt)

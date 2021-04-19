@@ -13,7 +13,6 @@ def get_text_from_file():
     if file_text:
         radiobutton_encode_and_decode_class(text, window, bg_color)
     file_text.close()
-    return text
 
 
 def button_get_text_from_file():
@@ -21,19 +20,28 @@ def button_get_text_from_file():
                             command=get_text_from_file,
                             bg='LightSteelBlue2',
                             justify=CENTER)
-    text_from_file.grid(column=1, row=1)
+    text_from_file.pack()
+    lbl_space = Label(text='', bg=bg_color)
+    lbl_space.pack()
     return text_from_file
 
 
 window = Tk()
 window.title("Вас приветсвтует шифратор")
-window.geometry('2400x1400')
-window['bg'] = 'LightSteelBlue1'
+window.geometry('1000x1000')
 bg_color = 'LightSteelBlue1'
+window['bg'] = bg_color
 
-lbl = Label(window, text="приветственный текст",
-            font=("Arial Bold", 20), bg=bg_color)
-lbl.grid(column=0, row=0)
+lbl = Label(window, text="""Чтобы шифрование вашего исходного текста прошло успешно рекомендуется выбирать файлы, 
+содержащие буквы одного алфавита(латинского/русского), за исключение быть может шифрования/расшифрования шифром Вернама.
+Для более детального ознакомления с программой, можно прочитать README.
+Чтобы выбрать файл, нажмите кнопку ниже ;).
+""",
+            font=("Arial Bold", 10), bg=bg_color)
+lbl.pack()
+
+lbl_space = Label(text='', bg=bg_color)
+lbl_space.pack()
 
 # вызов шифратора
 button_get_text_from_file()
