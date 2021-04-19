@@ -22,5 +22,4 @@ def choices(text):
             return code_class[number](text)
         except IndexError:
             print("Неправильный номер из списка предложенных...")
-            except_index_error(text)
-
+            return except_index_error(text)
