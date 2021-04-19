@@ -9,8 +9,6 @@ def except_path_file_errors():
         # открываю для чтения клиентский файл по формату utf-8 и записываю его содержимое в text
         with open(path, encoding='utf-8', mode='r') as f:
             text = f.read()
-        # закрываю файл
-        f.close()
         return text
     except FileNotFoundError:
         print("Нет такого файла!")
@@ -22,5 +20,5 @@ def except_path_file_errors():
 
 # вывод шифрования в консоль
 text = except_path_file_errors()
-a = choices(text).code()
+Client_choice_of_encryptor = choices(text).code()
 # choices(a).code()
