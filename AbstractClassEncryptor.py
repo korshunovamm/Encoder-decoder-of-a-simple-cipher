@@ -22,7 +22,7 @@ class AbsCodeClass(ABC):
             "Я" - последняя заглавная буква в русском алфавите
             self.frequency_char -самая часто втречаюшаяся буква в тексте
             """
-            if ord("А") < ord(self.text[i].upper()) < ord("Я"):
+            if ord("А") <= ord(self.text[i].upper()) <= ord("Я"):
                 self.letters = 32
                 self.smallstartletter = ord("а")
                 self.bigstartletter = ord("А")
@@ -34,7 +34,7 @@ class AbsCodeClass(ABC):
             "а" - первая маленькая буква в английском алфавите
             "Z" - последняя заглавная буква в английском алфавите
             """
-            if ord("A") < ord(self.text[i].upper()) < ord("Z"):
+            if ord("A") <= ord(self.text[i].upper()) <= ord("Z"):
                 self.letters = 25
                 self.smallstartletter = ord("a")
                 self.bigstartletter = ord("A")
