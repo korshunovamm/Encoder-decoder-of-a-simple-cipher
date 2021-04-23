@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import Label, Button, Radiobutton, IntVar, LEFT, RIGHT, CENTER
 from Encode_and_Decode_CesarClass import EncodeCesarClass, DecodeCesarClass
 from Encode_and_Decode_VigenereClass import EncodeVigenereClass, DecodeVigenereClass
 from Encode_and_Decode_VernamClass import CodeVernamClass

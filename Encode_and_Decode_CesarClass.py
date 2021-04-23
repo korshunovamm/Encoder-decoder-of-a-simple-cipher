@@ -1,5 +1,4 @@
-from tkinter import *
-from tkinter import messagebox
+from tkinter import Label, Button, Entry, END, messagebox
 from AbstractClassEncryptor import AbsCodeClass
 
 

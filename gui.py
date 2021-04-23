@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import Tk, Label, Button, CENTER
 from tkinter import filedialog
 from os import path
 from radiobuttons_to_choose_class import radiobutton_encode_and_decode_class

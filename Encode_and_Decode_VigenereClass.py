@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import Label, Entry, Button, END
 from tkinter import messagebox
 from AbstractClassEncryptor import AbsCodeClass
 import itertools
