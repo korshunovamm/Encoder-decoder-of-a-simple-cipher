@@ -1,3 +1,5 @@
+import sys
+from tkinter import messagebox
 from abc import ABC, abstractmethod
 
 
@@ -14,6 +16,7 @@ class AbsCodeClass(ABC):
         self.typecode = typecode
         # дополнительные данные для графического интерфейса
         self.window = window
+        self.letters = None
         for i in range(len(self.text)):
             """
             проверка на русский алфавит
@@ -40,6 +43,10 @@ class AbsCodeClass(ABC):
                 self.bigstartletter = ord("A")
                 self.frequency_char = ord("e")
                 break
+        # если в тексте нет букв латинского или руссского алфавита, то предупреждение
+        if self.letters == None:
+            messagebox.showinfo("В следующий раз повезёт", "В тексте должны быть буквы русского/латинского алфавита")
+            sys.exit()
 
     @abstractmethod
     def code(self):
