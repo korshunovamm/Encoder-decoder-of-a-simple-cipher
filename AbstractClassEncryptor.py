@@ -1,6 +1,6 @@
 import sys
-from tkinter import messagebox
 from abc import ABC, abstractmethod
+from tkinter import messagebox
 
 
 class AbsCodeClass(ABC):
