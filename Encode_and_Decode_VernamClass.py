@@ -2,7 +2,7 @@ from tkinter import Label, Button, Entry, END, messagebox
 import itertools
 
 
-class CodeVernamClass():
+class CodeVernamClass:
     """Класс не является наследником класса AbstractClassEncryptor, так как не имеет значение,
     буквы какого языка в тексте."""
 
@@ -14,10 +14,10 @@ class CodeVernamClass():
 
         def clicked():
             key_cesar = txt.get()
-            if not key_cesar.isalpha() or key_cesar == '¯\_(ツ)_/¯':
+            if not key_cesar.isalpha() or key_cesar == '¯|_(ツ)_|¯':
                 messagebox.showinfo(':(((((', 'Это не слово')
                 txt.delete(0, END)
-                txt.insert(0, '¯\_(ツ)_/¯')
+                txt.insert(0, '¯|_(ツ)_|¯')
             else:
                 self.typecode = key_cesar
                 code_text = self.code()
@@ -53,7 +53,7 @@ class CodeVernamClass():
                     break
             self.typecode = key_vernam
         """
-        if self.typecode != None:
+        if self.typecode is not None:
             cipher = []
             len_key = len(self.typecode)
             for char, i in zip(self.text, itertools.cycle(range(len_key))):

@@ -34,11 +34,11 @@ def radiobutton_encode_and_decode_class(text_file, window, bg_color):
     def choice():
         code_class = [EncodeCesarClass, EncodeVigenereClass, CodeVernamClass,
                       DecodeCesarClass, DecodeVigenereClass, CodeVernamClass, AutomaticCesarClass]
-        Client_choice_of_encryptor = code_class[r_var.get()](text_file, window=window, bg_color=bg_color)
-        code_text = Client_choice_of_encryptor.code()
+        client_choice_of_encryptor = code_class[r_var.get()](text_file, window=window, bg_color=bg_color)
+        code_text = client_choice_of_encryptor.code()
 
-        lbl_space = Label(text='', bg=bg_color)
-        lbl_space.pack()
+        label_space = Label(text='', bg=bg_color)
+        label_space.pack()
 
         # вывожу зашифрованный обработанный программой текст
         lbl_code_text = Label(text=code_text, bg=bg_color)

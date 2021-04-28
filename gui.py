@@ -20,8 +20,8 @@ def button_get_text_from_file():
                             bg='LightSteelBlue2',
                             justify=CENTER)
     text_from_file.pack()
-    lbl_space = Label(text='', bg=bg_color)
-    lbl_space.pack()
+    lb_space = Label(text='', bg=bg_color)
+    lb_space.pack()
     return text_from_file
 
 

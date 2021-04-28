@@ -44,9 +44,25 @@ class AbsCodeClass(ABC):
                 self.frequency_char = ord("e")
                 break
         # если в тексте нет букв латинского или руссского алфавита, то предупреждение
-        if self.letters == None:
+        if self.letters is None:
             messagebox.showinfo("В следующий раз повезёт", "В тексте должны быть буквы русского/латинского алфавита")
             sys.exit()
+
+    def parsing_cesar(self):
+        cipher = ""
+        for char in self.text:
+            # если буква заглавная, то и после кодирования она останется заглавной
+            if char.isupper():
+                cipher += chr((ord(char) + self.typecode - self.bigstartletter) % self.letters
+                              + self.bigstartletter)
+            # если буква заглавная, то и после кодирования она останется заглавной
+            elif char.islower():
+                cipher += chr((ord(char) + self.typecode - self.smallstartletter) % self.letters
+                              + self.smallstartletter)
+            # если символ то он сохраняется, не внося никакой вклад в шифрование
+            else:
+                cipher += char
+        return cipher
 
     @abstractmethod
     def code(self):

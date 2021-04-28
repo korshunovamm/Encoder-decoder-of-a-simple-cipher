@@ -17,10 +17,10 @@ class EncodeVigenereClass(AbsCodeClass):
 
         def clicked():
             key_vigener = txt.get()
-            if not key_vigener.isalpha() or key_vigener == '¯\_(ツ)_/¯':
+            if not key_vigener.isalpha() or key_vigener == '¯|_(ツ)_|¯':
                 messagebox.showinfo(':(((((', 'Это не слово')
                 txt.delete(0, END)
-                txt.insert(0, '¯\_(ツ)_/¯')
+                txt.insert(0, '¯|_(ツ)_|¯')
             else:
                 self.code_vig = key_vigener
                 code_text = self.code()
@@ -57,7 +57,7 @@ class EncodeVigenereClass(AbsCodeClass):
 
         except_value_error()
         """
-        if self.code_vig != None:
+        if self.code_vig is not None:
             len_key = len(self.code_vig)
             cipher = ""
             for char, i in zip(self.text, itertools.cycle(range(len_key))):

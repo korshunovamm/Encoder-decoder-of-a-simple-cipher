@@ -20,10 +20,10 @@ class EncodeCesarClass(AbsCodeClass):
         """
         def clicked():
             key_cesar = txt.get()
-            if not key_cesar.isdigit() or key_cesar == '¯\_(ツ)_/¯':
+            if not key_cesar.isdigit() or key_cesar == '¯|_(ツ)_|¯':
                 messagebox.showinfo(':(((((', 'Это не число')
                 txt.delete(0, END)
-                txt.insert(0, '¯\_(ツ)_/¯')
+                txt.insert(0, '¯|_(ツ)_|¯')
             else:
                 self.typecode = int(key_cesar)
                 code_text = self.code()
@@ -40,7 +40,6 @@ class EncodeCesarClass(AbsCodeClass):
         super().__init__(text, window)
 
     def code(self):
-        cipher = ''
         """
         self.typecode - ключ для шифрования(принимается с консоли) - число
         cipher - конечный результат гифрования - зашифрованный/расшифрованный текст
@@ -48,20 +47,8 @@ class EncodeCesarClass(AbsCodeClass):
         self.letters - количество букв в алфавите
         self.bigstartletter/self.smallstartletter - номер первой заглавной/маленькой буквы в алфавите
         """
-        if self.typecode != None:
-            for char in self.text:
-                # если буква заглавная, то и после кодирования она останется заглавной
-                if char.isupper():
-                    cipher += chr((ord(char) + self.typecode - self.bigstartletter) % self.letters
-                                  + self.bigstartletter)
-                # если буква маленькая, то и после кодирования она останется заглавной
-                elif char.islower():
-                    cipher += chr((ord(char) + self.typecode - self.smallstartletter) % self.letters
-                                  + self.smallstartletter)
-                # если символ то он сохраняется, не внося никакой вклад в шифрование
-                else:
-                    cipher += char
-            return cipher
+        if self.typecode is not None:
+            return self.parsing_cesar()
 
 
 class DecodeCesarClass(EncodeCesarClass):
@@ -72,5 +59,5 @@ class DecodeCesarClass(EncodeCesarClass):
 
     def __init__(self, text, window, bg_color):
         super().__init__(text, window, bg_color)
-        if self.typecode != None:
+        if self.typecode is not None:
             self.typecode = -self.typecode
