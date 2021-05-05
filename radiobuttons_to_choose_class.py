@@ -1,6 +1,7 @@
 from tkinter import Label, Button, Radiobutton, IntVar, LEFT, RIGHT, CENTER
 from Encode_and_Decode_CesarClass import EncodeCesarClass, DecodeCesarClass
-from Encode_and_Decode_VigenereClass import EncodeVigenereClass, DecodeVigenereClass
+from Encode_and_Decode_VigenereClass import EncodeVigenereClass, \
+    DecodeVigenereClass
 from Encode_and_Decode_VernamClass import CodeVernamClass
 from AutomaticHackingCesarCipher import AutomaticCesarClass
 
@@ -20,8 +21,10 @@ def radiobutton_encode_and_decode_class(text_file, window, bg_color):
                        variable=r_var, justify=RIGHT, bg=bg_color)
     rad5 = Radiobutton(window, text='расшифровать кодом Вернама', value=5,
                        variable=r_var, justify=RIGHT, bg=bg_color)
-    rad6 = Radiobutton(window, text='автоматический взлом шифра Цезаря частотным анализом', value=6,
-                       variable=r_var, justify=CENTER, bg=bg_color)
+    rad6 = Radiobutton(window,
+                       text='автоматический взлом шифра Цезаря '
+                            'частотным анализом',
+                       value=6, variable=r_var, justify=CENTER, bg=bg_color)
 
     rad0.pack()
     rad1.pack()
@@ -33,8 +36,11 @@ def radiobutton_encode_and_decode_class(text_file, window, bg_color):
 
     def choice():
         code_class = [EncodeCesarClass, EncodeVigenereClass, CodeVernamClass,
-                      DecodeCesarClass, DecodeVigenereClass, CodeVernamClass, AutomaticCesarClass]
-        client_choice_of_encryptor = code_class[r_var.get()](text_file, window=window, bg_color=bg_color)
+                      DecodeCesarClass, DecodeVigenereClass, CodeVernamClass,
+                      AutomaticCesarClass]
+        client_choice_of_encryptor = \
+            code_class[r_var.get()](text_file,
+                                    window=window, bg_color=bg_color)
         code_text = client_choice_of_encryptor.code()
 
         label_space = Label(text='', bg=bg_color)
@@ -44,7 +50,8 @@ def radiobutton_encode_and_decode_class(text_file, window, bg_color):
         lbl_code_text = Label(text=code_text, bg=bg_color)
         lbl_code_text.pack()
 
-    click = Button(window, text="Кодировать!!!", command=choice, justify=CENTER, bg=bg_color)
+    click = Button(window, text="Кодировать!!!",
+                   command=choice, justify=CENTER, bg=bg_color)
     click.pack()
 
     lbl_space = Label(text='', bg=bg_color)
