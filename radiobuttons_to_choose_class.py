@@ -50,7 +50,7 @@ def radiobutton_encode_and_decode_class(text_file, window, bg_color):
         lbl_code_text = Label(text=code_text, bg=bg_color)
         lbl_code_text.pack()
 
-    click = Button(window, text="Кодировать!!!",
+    click = Button(window, text="Кодировать!!",
                    command=choice, justify=CENTER, bg=bg_color)
     click.pack()
 

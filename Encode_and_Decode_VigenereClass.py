@@ -47,7 +47,7 @@ class EncodeVigenereClass(AbsCodeClass):
         char - один символ текста
         self.letters - количество букв в алфавите
         self.bigstartletter/self.smallstartletter -
-        номер первой заглавной/маленькой буквы в алфавите
+        номер первой  заглавной/маленькой буквы в алфавите
         i пробегает значения от 0 до длины слова key_vig
         """
         """

@@ -19,7 +19,7 @@ class AutomaticCesarClass(AbsCodeClass):
         return self.parsing_cesar()
 
     def code(self):
-        """Выводит ключ кода Цезаря по часто встречающейся букве"""
+        """Выводит ключ кода Цезаря по часто встречающейся букве."""
         count = {chr(x): 0 for x in
                  range(self.smallstartletter,
                        self.smallstartletter + self.letters)}
