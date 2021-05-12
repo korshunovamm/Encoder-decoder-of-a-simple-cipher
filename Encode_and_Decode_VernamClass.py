@@ -1,5 +1,5 @@
-from tkinter import Label, Button, Entry, END, messagebox
 import itertools
+from tkinter import Label, Button, Entry, END, messagebox
 
 
 class CodeVernamClass:

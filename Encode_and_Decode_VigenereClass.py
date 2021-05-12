@@ -1,7 +1,6 @@
-from tkinter import Label, Entry, Button, END
-from tkinter import messagebox
-from AbstractClassEncryptor import AbsCodeClass
 import itertools
+from tkinter import Label, Entry, Button, END, messagebox
+from AbstractClassEncryptor import AbsCodeClass
 
 
 class EncodeVigenereClass(AbsCodeClass):

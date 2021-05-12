@@ -1,9 +1,9 @@
 from tkinter import Label, Button, Radiobutton, IntVar, LEFT, RIGHT, CENTER
+from AutomaticHackingCesarCipher import AutomaticCesarClass
 from Encode_and_Decode_CesarClass import EncodeCesarClass, DecodeCesarClass
+from Encode_and_Decode_VernamClass import CodeVernamClass
 from Encode_and_Decode_VigenereClass import EncodeVigenereClass, \
     DecodeVigenereClass
-from Encode_and_Decode_VernamClass import CodeVernamClass
-from AutomaticHackingCesarCipher import AutomaticCesarClass
 
 
 def radiobutton_encode_and_decode_class(text_file, window, bg_color):

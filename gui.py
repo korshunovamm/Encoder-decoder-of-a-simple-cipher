@@ -1,6 +1,6 @@
 from os import path
-from tkinter import Tk, Label, filedialog, Button, CENTER
 from radiobuttons_to_choose_class import radiobutton_encode_and_decode_class
+from tkinter import Tk, Label, filedialog, Button, CENTER
 
 
 def get_text_from_file():
