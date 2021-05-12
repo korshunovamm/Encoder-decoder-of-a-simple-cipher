@@ -8,11 +8,10 @@ def get_text_from_file():
                                            title='Выберите файл '
                                                  'для кодирования',
                                            filetypes=[("Text files", '*.txt')])
-    file_text = open(file_name, encoding='utf-8', mode='r')
-    text = file_text.read()
+    with open(file_name, encoding='utf-8', mode='r') as file_text:
+        text = file_text.read()
     if file_text:
         radiobutton_encode_and_decode_class(text, window, bg_color)
-    file_text.close()
 
 
 def button_get_text_from_file():
